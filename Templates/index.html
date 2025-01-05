@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Recommender System</title>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100&effect=neon">
+</head>
+<style>
+    a {
+        text-decoration: none;
+        font-size: 16px;
+    }
+    .navbar-nav {
+        float: left;
+        margin: 0;
+        margin-left: 53px;
+    }
+    .text-yellow{
+        color:#f57f17;
+    }
+       -------------------------------------------------------------------------------------------------------------------------
+        :root {
+            --gradient: linear-gradient(to left top, #DD2476 10%, #FF512F 90%) !important;
+          }
+          
+          body {
+            background: #000 !important;
+          }
+
+          
+          img {
+            margin-left: 29px;
+            margin-bottom: 10px;
+            margin-top: 9px;
+            height: 168px;
+        }
+          
+          .card {
+            background: #222;
+            border: 1px solid #dd2476;
+            color: rgba(250, 250, 250, 0.8);
+            margin-bottom: 2rem;
+          }
+
+          .card-body {
+            margin-left: 8px;
+          }
+
+          h1{
+            font-family: Lato;
+          }
+          .font-effect-neon{
+            font-family: Lato;
+          }
+
+    
+</style>
+<body style="background-color:black">
+  
+
+    <nav class="navbar" style="background-color:#000">
+        <a class="navbar-brand" >My Book recommender</a>
+        <ul class="nav navbar-nav">
+            <li><a href="/"  class="font-effect-neon">Home</a></li>
+            <li><a href="/recommend"  class="font-effect-neon">Recommend</a></li>
+           
+            
+        </ul>
+    </nav>
+<br>
+<h1 class="font-effect-neon" style="font-size:50px"><center>Top 50 Books</center></h1>
+<br><br>
+
+    <div class="container mx-auto mt-4">
+        <div class="row">
+            {% for i in range(book_name|length) %}
+            <div class="col-md-3">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{ image[i] }}" class="card-img-top" alt="Book Image">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ book_name[i] }}</h5>
+                        <p class="card-text"><u>Author</u>: {{ author[i] }}</p>
+                        <p class="card-text"><u>Votes</u>: {{ votes[i] }}</p>
+                        <p class="card-text"><u>Rating</u>: {{ rating[i] }}</p>
+                    </div>
+                </div>
+            </div>
+            {% if (i + 1) % 4 == 0 and not loop.last %}
+        </div>
+        <div class="row">
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <!-- <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-yellow" style="font-size:50px">Top 50 Books</h1>
+            </div>
+
+            {% for i in range(book_name|length) %}
+                <div class="col-md-3" style="margin-top:50px">
+                    <div class="card">
+                        <div class="card-body">
+                            <img class="card-img-top" src="{{ image[i] }}">
+                            <br>
+                           <div class="container1">
+                            <p class="text-white">{{ book_name[i] }}</p>
+                           </div>
+                           <div class="containe2">
+                            <h4 class="text-white">{{ author[i] }}</h4>
+                           </div>
+                           <div class="container3">
+                            <h4 class="text-white">Votes - {{ votes[i] }}</h4>
+                           </div>
+                            <h4 class="text-white">Rating - {{ rating[i] }}</h4>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+
+        </div>
+    </div>  -->
+
+</body>
+</html>
